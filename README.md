@@ -60,4 +60,4 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 ## Website Hosting
 
-[view site](https://http://looplife.infinityfree.me/)
+[view site 🚀](http://looplife.infinityfree.me/)

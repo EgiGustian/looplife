@@ -58,6 +58,17 @@
           <p class="text-gray-500">Lengkapi data diri Anda untuk bergabung.</p>
         </div>
 
+        @if ($errors->any())
+        <div style="background-color: #f8d7da; color: #721c24; padding: 10px; margin-bottom: 20px; border: 1px solid #f5c6cb; border-radius: 5px;">
+          <strong>Waduh! Ada masalah nih:</strong>
+          <ul style="margin-top: 5px; padding-left: 20px;">
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+          </ul>
+        </div>
+        @endif
+
         <form action="{{ route('register') }}" method="POST" class="space-y-5">
           @csrf
 
@@ -75,12 +86,21 @@
               placeholder="username_unik" required>
           </div>
 
+
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label class="block text-sm font-semibold text-gray-700 mb-2">Password</label>
               <input type="password" name="password"
                 class="w-full px-5 py-3 rounded-xl bg-gray-50 border border-gray-200 text-gray-800 focus:bg-white focus:border-green-500 focus:ring-4 focus:ring-green-500/20 transition outline-none"
                 placeholder="Min. 8 karakter" required>
+
+              <!-- Pesan error password -->
+              @error('password')
+              <div style="color: red; font-size: 0.9em; margin-top: 5px;">
+                {{ $message }}
+              </div>
+              @enderror
+              
             </div>
             <div>
               <label class="block text-sm font-semibold text-gray-700 mb-2">Konfirmasi</label>
